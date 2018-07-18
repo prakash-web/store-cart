@@ -6,7 +6,6 @@ import Carousel from './Carousel';
 class Product extends Component {
     render() {
         const info = data.CatalogEntryView[0];
-        console.log(info);
         return (
             <div className="Main-product">
                 <div className="Product-page">
@@ -81,7 +80,7 @@ class PurchaseInfo extends Component {
             count: this.state.count + 1
         });
     }
-    
+
     decrementCount() {
         this.setState({
             count: this.state.count - 1
