@@ -1,0 +1,171 @@
+html, body {
+	height:100%;
+	margin: 0;
+  width: 100%;
+}
+.Main-product {
+  margin: 20px;
+}
+.Product-page {
+  display: flex;
+}
+
+.Product-view {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.Primary-image {
+  width: 400px;
+}
+
+.carousel {
+  display: flex;
+  margin: 20px auto;
+  width: 300px;
+}
+
+.images-container {
+  display: flex;
+  margin: 0 auto;
+  transition: background-image .3s ease-in-out;
+}
+
+.mini-images {
+  width: 55px;
+  height: 55px;
+  padding: 10px;
+}
+
+.slide-arrow {
+	color: black;
+	cursor: pointer;
+	font-size: 35px;
+  text-decoration: none;
+  position: relative;
+  top: 15px;
+}
+
+.product-info {
+  margin: 10px;
+}
+
+.price-details {
+  margin-bottom: 30px;
+}
+
+.price-details h2, .price-details span {
+  display: inline;
+  padding: 2px;
+}
+
+.promotion-details {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding: 15px 0;
+}
+
+.primary {
+  width: 150px;
+  height: 30px;
+  padding: 5px;
+  margin : 10px 10px 10px 0;
+  color: white;
+  border-radius: 3px;
+  text-align: center;
+  outline: none;
+}
+
+.counter {
+  display: flex;
+}
+.counterDisplay {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.counterBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 20px;
+  position: relative;
+  top: 15px;
+  outline: none;
+}
+.storeBtn {
+  background: black;
+}
+.cartBtn {
+  background: red;
+}
+
+.secondary {
+  width: 120px;
+  height: 20px;
+  margin : 10px 10px 10px 0;
+  color: black;
+  border-radius: 3px;
+  text-align: center;
+  background: lightgrey;
+  outline: none;
+}
+
+/* Review Section Styles */
+.Review-info {
+  width: 50%;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.header-section {
+  display: flex;
+  justify-content: space-around;
+}
+.comments-section {
+  width: 90%;
+  background: #f2f2f2;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+.total-reviews {
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+}
+.comments-head {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.comments-body {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border-top: 1px solid lightgrey;
+}
+.pro-body, .pro-head {
+  flex-basis: 50%;
+  margin-right: 30px;
+}
+.con-body, .con-head {
+  flex-basis: 50%;
+}
+@media screen and (max-width : 600px) {
+  .Product-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+  }
+  .Primary-image {
+    width: 100%;
+  }
+  .Review-info {
+    width: 100%;
+  }
+}
