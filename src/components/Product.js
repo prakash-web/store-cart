@@ -3,9 +3,11 @@ import data from '../item-data.json';
 import '../Product.css';
 import Carousel from './Carousel';
 
+const info = data.CatalogEntryView[0];
+console.log(info);
+
 class Product extends Component {
     render() {
-        const info = data.CatalogEntryView[0];
         return (
             <div className="Main-product">
                 <div className="Product-page">
@@ -20,7 +22,6 @@ class Product extends Component {
 
 class ProductView extends Component {
     render() {
-        const info = data.CatalogEntryView[0];
         return (
             <div className="Product-view">
                 <h3> {info.title}</h3>
@@ -36,7 +37,6 @@ class ProductView extends Component {
 
 class ProductInfo extends Component {
     render() {
-        const info = data.CatalogEntryView[0];
         const descriptionList = info.ItemDescription[0].features.map((item, index) => {
             return ( <li key={ index }> {item} </li>)
         });
@@ -82,12 +82,26 @@ class PurchaseInfo extends Component {
     }
 
     decrementCount() {
-        this.setState({
-            count: this.state.count - 1
-        });
+        if(this.state.count < 1){
+            this.setState({
+                count: 0
+            });
+        } else {
+            this.setState({
+                count: this.state.count - 1
+            });
+        }
     }
 
     render() {
+        const productAvailability = info.purchasingChannelCode;
+        let storeBtn, cartBtn;
+        if(productAvailability == 0 || productAvailability == 1){
+            storeBtn = <button className="storeBtn primary">PICK UP IN STORE</button>
+        }
+        if(productAvailability == 0 || productAvailability == 2){
+            cartBtn = <button className="cartBtn primary">ADD TO CART</button>
+        }
         return (
             <div className="purchase-details">
                 <div className="counter">
@@ -97,8 +111,8 @@ class PurchaseInfo extends Component {
                     <button className="counterBtn" onClick={this.incrementCount}>+</button>
                 </div>
                 <div className="purchase-buttons">
-                    <button className="storeBtn primary">PICK UP IN STORE</button>
-                    <button className="cartBtn primary">ADD TO CART</button>
+                    {storeBtn}
+                    {cartBtn}
                 </div>
                 <div className="return-details">
 

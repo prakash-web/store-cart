@@ -10,13 +10,14 @@ images.map(item => {
     imgUrls.push(item.image);
 })
 
+const lastIndex = imgUrls.length - 1;
 
 class Carousel extends Component {
 	constructor (props) {
 		super(props);
 		
 		this.state = {
-			currentImageIndex: 0
+			currentImageIndex: 1
 		};
 		
 		this.nextSlide = this.nextSlide.bind(this);
@@ -24,25 +25,27 @@ class Carousel extends Component {
 	}
 	
 	previousSlide () {
-		const lastIndex = imgUrls.length - 1;
-		const { currentImageIndex } = this.state;
-		const shouldResetIndex = currentImageIndex === 0;
-		const index =  shouldResetIndex ? lastIndex : currentImageIndex - 1;
-		
-		this.setState({
-			currentImageIndex: index
-		});
+		if( this.state.currentImageIndex === 1) {
+            this.setState({
+                currentImageIndex: lastIndex - 1
+            });
+        } else {
+            this.setState({
+                currentImageIndex: this.state.currentImageIndex - 1
+            });
+        }
 	}
 	
 	nextSlide () {
-		const lastIndex = imgUrls.length - 1;
-		const { currentImageIndex } = this.state;
-		const shouldResetIndex = currentImageIndex === lastIndex;
-		const index =  shouldResetIndex ? 0 : currentImageIndex + 1;
-
-		this.setState({
-			currentImageIndex: index
-		});
+		if( this.state.currentImageIndex === lastIndex - 1 ) {
+            this.setState({
+                currentImageIndex: 1
+            });
+        } else {
+            this.setState({
+                currentImageIndex: this.state.currentImageIndex + 1
+            });
+        }
 	}
 	
 	render () {
@@ -50,23 +53,15 @@ class Carousel extends Component {
 			<div className="carousel">
                 <a href="#" className="slide-arrow" onClick={this.previousSlide}>&#8249;</a>
                 <div className="images-container">
+                    <img className="mini-images" src= {imgUrls[this.state.currentImageIndex - 1]} />
                     <img className="mini-images" src= {imgUrls[this.state.currentImageIndex]} />
                     <img className="mini-images" src= {imgUrls[this.state.currentImageIndex + 1]} />
-                    <img className="mini-images" src= {imgUrls[this.state.currentImageIndex + 2]} />
                 </div>
                 <a href="#" className="slide-arrow" onClick={this.nextSlide}>&#8250;</a>
 			</div>
 		);
 	}
 }
-
-const Arrow = ({ direction, clickFunction, glyph }) => (
-	<div 
-		className={ `slide-arrow ${direction}` } 
-		onClick={ clickFunction }>
-		{ glyph } 
-	</div>
-);
 
 
 export default Carousel;

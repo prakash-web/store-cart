@@ -77,6 +77,7 @@ html, body {
   border-radius: 3px;
   text-align: center;
   outline: none;
+  cursor: pointer;
 }
 
 .counter {
@@ -101,7 +102,6 @@ html, body {
 .cartBtn {
   background: red;
 }
-
 .secondary {
   width: 120px;
   height: 20px;
@@ -111,6 +111,7 @@ html, body {
   text-align: center;
   background: lightgrey;
   outline: none;
+  cursor: pointer;
 }
 
 /* Review Section Styles */
@@ -155,6 +156,7 @@ html, body {
 .con-body, .con-head {
   flex-basis: 50%;
 }
+
 @media screen and (max-width : 600px) {
   .Product-page {
     display: flex;
